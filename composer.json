@@ -1,0 +1,16 @@
+{
+    "description": "Fichier JSON pour Composer",
+    "name": "tyffany/p4blog",
+    "require": {
+        "php": ">=5.3"
+    },
+    "authors": [
+        {
+            "name": "Tyffany Robbes",
+            "email": "robbes.tyffany@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4" : {"Model\\" : "model"}
+    }
+}
