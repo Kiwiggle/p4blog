@@ -7,6 +7,6 @@
     <title>Blog de Jean Forteroche</title>
 </head>
 <body>
-    Test
+    
 </body>
 </html> 
