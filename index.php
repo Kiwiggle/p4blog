@@ -1,8 +1,7 @@
 <?php 
 require('vendor/autoload.php');
 require('controller/frontend.php');
-
-use Model\PostManager;
+require('controller/backend.php');
 
 try {
     if (isset($_GET['action'])) {
@@ -14,7 +13,7 @@ try {
                 post();
             }
             else {
-                throw new Exeption('Erreur : aucun identifiant de billet envoyé');
+                throw new Exception('Erreur : aucun identifiant de billet envoyé');
             }
         }
         elseif($_GET['action'] == 'addComment') {
@@ -22,7 +21,7 @@ try {
                 if (!empty($_POST['author']) && !empty($_POST['comment'])) {
                     addComment($_GET['id'], $_POST['author'], $_POST['comment']);
                 } else {
-                    throw new Exeption('Erreur : tous les champs ne sont pas remplis');
+                    throw new Exception('Erreur : tous les champs ne sont pas remplis');
                 }
             } else {
                 throw new Exception('Erreur : aucun identifiant de billet envoyé');
@@ -40,10 +39,12 @@ try {
                 if (!empty($_POST['comment'])) {
                     modifyComment($_GET['id'], $_POST['comment']);
                 } else {
-                    throw new Exeption('Erreur : le commentaire n\'a pu être modifié');
+                    throw new Exception('Erreur : le commentaire n\'a pu être modifié');
                 }
                 
             }
+        } elseif ($_GET['action'] == 'admin') {
+            adminView();
         }
     } else {
         listPosts();

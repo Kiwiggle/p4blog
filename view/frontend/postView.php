@@ -1,6 +1,5 @@
 <?php $title = 'Commentaires';
-
-ob_start(); ?>
+ob_start();?>
 
     <h1>Commentaires</h1>
 
@@ -43,4 +42,4 @@ ob_start(); ?>
     <a href="index.php"><p>Revenir à l'accueil du site.</p></a>
 
 <?php $content = ob_get_clean(); 
-require('template.php')?>
+require('template.php') ?>

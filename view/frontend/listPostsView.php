@@ -24,6 +24,8 @@
     ?>
 </article>
 
+<a href="index.php?action=admin"><p>Espace Admin</p></a>
+
 <?php $content = ob_get_clean(); ?>
 
 <?php require('template.php'); ?>
