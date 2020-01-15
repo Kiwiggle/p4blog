@@ -18,4 +18,14 @@ class PostManager extends Manager {
 
         return $post;
     }
+
+    public function createPost($content) {
+        $db = $this->dbConnect();
+        $req = $db->prepare('INSERT INTO posts(title, content, creation_date) VALUES(:title, :content, :creation_date)');
+        $req->execute(array (
+            'title' => 'Titre test',
+            'content' => $content['textarea'],
+            'creation_date' => '2020-01-12 11:30:00'
+        ));
+    }
 }
