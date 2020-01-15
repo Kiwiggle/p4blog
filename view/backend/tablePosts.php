@@ -13,8 +13,10 @@ while ($data = $posts->fetch())
         <tr>
             <td><?= $data['title'] ?></td>
             <td><?= $data['date_creation_fr']?></td>
-            <td><button>Modifier</button></td>
-            <td><button>Supprimer</button></td>
+            <td><button onclick="location.href='index.php?action=modifyPost&amp;id=<?= $data['id']?>'" type="button">
+            Modifier</button></td>
+            <td><button onclick="location.href='index.php?action=deletePost&amp;id=<?= $data['id']?>'" type="button">
+            Supprimer</button></td>
         </tr>
     <?php
     }    

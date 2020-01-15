@@ -15,7 +15,7 @@ function post()
     $postManager = new Model\PostManager();
     $commentManager = new Model\CommentManager();
     $post = $postManager-> getPost($_GET['id']);
-    $comments = $commentManager->getComments($_GET['id']);
+    $comments = $commentManager->getCommentsFromPost($_GET['id']);
     require('view/frontend/postView.php');
 }
 
@@ -42,4 +42,10 @@ function modifyComment($oldCommentId, $newComment) {
     $commentManager = new Model\CommentManager();
     $commentManager->modifyComment($oldCommentId, $newComment);
     header('Location: view/frontend/success.php');
+}
+
+function reportComment($commentId) {
+    $commentManager = new Model\CommentManager();
+    $commentManager->reportComment($commentId);
+    header('Location: index.php');
 }

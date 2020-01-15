@@ -41,11 +41,18 @@ try {
                 } else {
                     throw new Exception('Erreur : le commentaire n\'a pu être modifié');
                 }
-                
             }
+        } elseif ($_GET['action'] == 'reportComment' && (isset($_GET['commentId']))) {
+            reportComment($_GET['commentId']);
         } elseif ($_GET['action'] == 'admin') {
             adminView();
-        }
+        } elseif ($_GET['action'] == 'modifyPost') {
+            echo "test réussi";
+        } elseif ($_GET['action'] == 'deletePost') {
+            echo "test réussi";
+        } elseif ($_GET['action'] == 'deleteComment' && (isset($_GET['id']))) {
+            deleteComment($_GET['id']);
+        } 
     } else {
         listPosts();
     }
