@@ -10,6 +10,16 @@ function tablePosts()
     require('view/backend/tablePosts.php');
 }
 
+function createPost($post = null) {
+    if ($post === null) {
+        require('view/backend/createPost.php');
+    } else {
+        $postManager = new Model\PostManager();
+        $postManager->createPost($post);
+        header('Location: index.php');
+    }
+}
+
 function deletePost()
 {
 

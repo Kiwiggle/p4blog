@@ -46,6 +46,13 @@ try {
             reportComment($_GET['commentId']);
         } elseif ($_GET['action'] == 'admin') {
             adminView();
+        } elseif ($_GET['action'] == 'createPost') {
+            if ($_POST) {
+                createPost($_POST);
+            } else {
+                createPost();
+            }
+            
         } elseif ($_GET['action'] == 'modifyPost') {
             echo "test réussi";
         } elseif ($_GET['action'] == 'deletePost') {
