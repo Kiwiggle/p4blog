@@ -32,7 +32,7 @@ ob_start();?>
     <?php while ($comment = $comments->fetch()) 
     {
         ?>
-        <p><b> <?php echo htmlspecialchars($comment['author']);?> </b> le <?php echo $comment['comment_date_fr']?> (<a href="index.php?action=commentView&amp;commentId=<?= $comment['id']?>">Modifier</a>)</p>
+        <p><b> <?php echo htmlspecialchars($comment['author']);?> </b> le <?php echo $comment['comment_date_fr']?> (<a href="index.php?action=commentView&amp;commentId=<?= $comment['id']?>">Modifier</a>)</p> (<a href="index.php?action=reportComment&amp;commentId=<?= $comment['id']?>">Signaler</a>)</p>
         <p> <?php echo htmlspecialchars($comment['comment']);?> </p>
         <?php
     } 
