@@ -20,14 +20,22 @@ function createPost($post = null) {
     }
 }
 
-function deletePost()
+function deletePost($postId)
 {
-
+    $postManager = new Model\PostManager();
+    $postManager->deletePost($postId);
+    header('Location: index.php');
 }
 
-function modifyPost()
+function updatePost($updatedPost = null, $updatedPostId = null)
 {
-    
+    if ($updatedPost === null) {
+        require('view/backend/updatePost.php');
+    } else {
+        $postManager = new Model\PostManager();
+        $postManager->updatePost($updatedPost, $updatedPostId);
+        header('Location: index.php');
+    }
 }
 
 function tableComments() 
