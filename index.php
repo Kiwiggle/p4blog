@@ -52,11 +52,15 @@ try {
             } else {
                 createPost();
             }
+        } elseif ($_GET['action'] == 'updatePost') {
+            if ($_POST) {
+                updatePost($_POST, $_GET['id']);
+            } else {
+                updatePost();
+            }
             
-        } elseif ($_GET['action'] == 'modifyPost') {
-            echo "test réussi";
-        } elseif ($_GET['action'] == 'deletePost') {
-            echo "test réussi";
+        } elseif ($_GET['action'] == 'deletePost' && $_GET['id']) {
+            deletePost($_GET['id']);
         } elseif ($_GET['action'] == 'deleteComment' && (isset($_GET['id']))) {
             deleteComment($_GET['id']);
         } 

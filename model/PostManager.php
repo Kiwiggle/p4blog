@@ -25,7 +25,19 @@ class PostManager extends Manager {
         $req->execute(array (
             'title' => 'Titre test',
             'content' => $content['textarea'],
-            'creation_date' => '2020-01-12 11:30:00'
+            'creation_date' => date("Y-m-d H:i:s")
         ));
+    }
+
+    public function updatePost($updatedPost, $updatedPostId) {
+        $db = $this->dbConnect();
+        $req = $db->prepare('UPDATE posts SET title = ?, content = ?, creation_date = ? WHERE id = ?');
+        $req->execute(array('Updated post test', $updatedPost['textarea'], date("Y-m-d H:i:s"), $updatedPostId));
+    }
+
+    public function deletePost($postId) {
+        $db = $this->dbConnect();
+        $req = $db->prepare('DELETE FROM posts WHERE id = ?');
+        $req->execute(array($postId));
     }
 }
