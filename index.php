@@ -53,7 +53,7 @@ try {
                 createPost();
             }
         } elseif ($_GET['action'] == 'updatePost') {
-            if ($_POST) {
+            if (!empty($_POST)) {
                 updatePost($_POST, $_GET['id']);
             } else {
                 updatePost();
