@@ -1,9 +1,15 @@
 <?php $title = 'Mon blog'; ?>
 
 <?php ob_start(); ?>
-<h1>Mon super blog !</h1>
 
-<p>Derniers billets du blog :</p>
+<header>
+    <h1>Un billet simple pour l'Alaska.</h1>
+    <p>De Jean Forteroche</p>
+</header>
+
+<div id="mapid"></div>
+
+<!--<p>Derniers billets du blog :</p>
 
 <article>
     <?php 
@@ -23,6 +29,8 @@
     $posts->closeCursor();
     ?>
 </article>
+
+<a href="index.php?action=admin"><p>Espace Admin</p></a>-->
 
 <?php $content = ob_get_clean(); ?>
 

@@ -1,6 +1,5 @@
 <?php $title = 'Commentaires';
-
-ob_start(); ?>
+ob_start();?>
 
     <h1>Commentaires</h1>
 
@@ -33,7 +32,7 @@ ob_start(); ?>
     <?php while ($comment = $comments->fetch()) 
     {
         ?>
-        <p><b> <?php echo htmlspecialchars($comment['author']);?> </b> le <?php echo $comment['comment_date_fr']?> (<a href="index.php?action=commentView&amp;commentId=<?= $comment['id']?>">Modifier</a>)</p>
+        <p><b> <?php echo htmlspecialchars($comment['author']);?> </b> le <?php echo $comment['comment_date_fr']?> (<a href="index.php?action=commentView&amp;commentId=<?= $comment['id']?>">Modifier</a>)</p> (<a href="index.php?action=reportComment&amp;commentId=<?= $comment['id']?>">Signaler</a>)</p>
         <p> <?php echo htmlspecialchars($comment['comment']);?> </p>
         <?php
     } 
@@ -43,4 +42,4 @@ ob_start(); ?>
     <a href="index.php"><p>Revenir à l'accueil du site.</p></a>
 
 <?php $content = ob_get_clean(); 
-require('template.php')?>
+require('template.php') ?>
