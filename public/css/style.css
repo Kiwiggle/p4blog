@@ -1,3 +1,12 @@
+/*
+*
+*
+GENERAL
+*
+*
+*/
+
+
 body {
     font-family: 'Source Sans Pro', sans-serif;
 }
@@ -6,7 +15,19 @@ h1, h2, h3, h4, h5, h6 {
     font-family: 'Baskervville', serif;
 }
 
-header {
+b {
+    font-size:1.5em;
+}
+
+/*
+*
+*
+INDEX HEADER
+*
+*
+*/
+
+#index_header{
     position:absolute;
     top:0;
     left:12%;
@@ -17,9 +38,39 @@ header {
     opacity:0.8;
 }
 
-header h1, header p {
+#index_header h1, #index_header p {
     text-align: center;
 } 
+
+#index_header h1 {
+    padding: 2% 3%;
+}
+
+#index_header p {
+    padding:0;
+    margin:0;
+}
+
+#index_header #author {
+    margin-top:-5%;
+    padding:0;
+    font-size:1.3em;
+    font-style: italic;
+}
+
+#index_header p {
+    margin: 30% 10%;
+    line-height:2;
+}
+
+/*
+*
+*
+INDEX MAP
+*
+*
+*/
+
 
 #mapid {
     z-index:-1;
@@ -33,4 +84,175 @@ header h1, header p {
 
  #mapid .leaflet-tooltip {
     margin-top: -45px; 
+}
+
+/*
+*
+*
+POST PAGE
+*
+*
+*/
+
+.postPage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width:100%;
+}
+
+.postPage article {
+    width:100%;
+    display: flex;
+    justify-content: center;
+}
+
+.post {
+    width:80%;
+    margin-bottom:0;
+}
+
+.postPage article h1 {
+    font-size: 2.5em;
+    text-align: center;
+}
+
+.postPage p {
+    font-size:1.5em;
+}
+
+p.postContent {
+    line-height:1.7;
+    margin:3% 5%;
+}
+
+.postPage .postDate {
+    text-align: right;
+    padding:0.3% 1% 0.3% 0;
+    border-bottom: 1px solid silver;
+    border-top: 1px solid silver;
+}
+
+.comments {
+    width:72%;
+}
+
+.commentsList {
+    width:100%;
+}
+
+.comments .addComment h2, .comments .commentsList h2 {
+    font-size: 2em;
+    text-align: center;
+    margin:5% 0 5% 0;
+}
+
+.commentsList p {
+    font-size: 1.3em;
+    margin-top:2%;
+}
+
+.commentsList .commentDate {
+    font-size:1em;
+    border-bottom: 1px solid silver;
+    padding-bottom:1%;
+    margin-bottom: 0;
+}
+
+.addComment form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 0 0 10% 0;
+}
+
+.addComment form label {
+    font-size:1.5em;
+    margin-top:2%;
+}
+
+.addComment input, .addComment textarea {
+ margin:auto;
+ width:50%;
+}
+
+.addComment input {
+    height:30px;
+} 
+
+.addComment textarea {
+    height:100px;
+}
+
+.addComment .submitButton {
+    display:block;
+    width:10%;
+    min-height:100px;
+    padding:5%;
+    margin:2%;
+}
+
+.addComment input:valid, .addComment textarea:valid {
+    font-size:1.3em;
+    text-align: center;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+
+/*
+*
+*
+ADMIN
+*
+*
+*/
+
+.adminBoard {
+    text-align: center;
+}
+
+.adminBoard h1 {
+    font-size:2em;
+    margin-top:3%;
+}
+
+.adminBoard h2 {
+    font-size:1.8em;
+    margin: 3% 0;
+}
+
+.adminBoard .createPostButton {
+    width:20%;
+    height:70px;
+    margin:2% 0;
+    background-color: silver;
+    border:none;
+    font-size:1.2em;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+.adminBoard .createPostButton:hover {
+    cursor: pointer;
+}
+
+.table {
+    border:1px solid silver;
+    width:95%;text-align: center;
+    border-collapse: collapse;
+    margin:auto;
+}
+
+.table tr:hover {
+    background-color: silver;
+}
+
+.table thead tr th {
+    background-color: silver;
+}
+
+.table td, .table thead tr th{
+    padding:0.8% 0;
+    border-top:1px solid silver;
 }

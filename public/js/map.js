@@ -16,7 +16,7 @@ class Map {
     initMap() {
         // Insère la carte dans #mapid
         this.maCarte = L.map(this.mapId);
-        this.maCarte.setView([this.lat, this.lon], 4);
+        this.maCarte.setView([this.lat, this.lon], 6);
         L.tileLayer(this.tileUrl, {
             attribution: 'données © <a href="//osm.org/copyright">OpenStreetMap</a>/ODbL - rendu <a href="//openstreetmap.fr">OSM France</a>',
             minZoom: 2,

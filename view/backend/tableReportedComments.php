@@ -3,7 +3,7 @@ $nbr = $comments->rowCount();
 
 if ($nbr > 0) {
 ?>
-    <table>
+    <table class="table">
         <thead>
             <tr>
                 <th>Auteur</th>
