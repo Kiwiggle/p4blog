@@ -21,11 +21,13 @@ class PostManager extends Manager {
 
     public function createPost($content) {
         $db = $this->dbConnect();
-        $req = $db->prepare('INSERT INTO posts(title, content, creation_date) VALUES(:title, :content, :creation_date)');
+        $req = $db->prepare('INSERT INTO posts(title, content, creation_date, latitude, longitude) VALUES(:title, :content, :creation_date, :latitude, :longitude)');
         $req->execute(array (
             'title' => 'Titre test',
             'content' => $content['textarea'],
-            'creation_date' => date("Y-m-d H:i:s")
+            'creation_date' => date("Y-m-d H:i:s"),
+            'latitude' => $content['latitude'],
+            'longitude' => $content ['longitude']
         ));
     }
 
