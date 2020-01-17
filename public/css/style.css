@@ -190,6 +190,7 @@ p.postContent {
 .addComment input, .addComment textarea, .createPostForm input {
  margin:auto;
  width:50%;
+ border: 1px solid #86c9e3;
 }
 
 .addComment input, .createPostForm input {
@@ -287,7 +288,7 @@ NEW POST
 */
 
 .createPost h1 {
-    margin:3% 0;
+    margin:3% 0 1% 0;
 }
 
 .createPost .tox {
