@@ -5,7 +5,7 @@ class PostManager extends Manager {
     public function getPosts() 
     {
         $db = $this->dbConnect();
-        $posts = $db->query('SELECT id, title, content, DATE_FORMAT(creation_date,\'%d/%m/%Y à %Hh%i\')AS date_creation_fr FROM posts ORDER BY creation_date DESC');
+        $posts = $db->query('SELECT id, title, content, DATE_FORMAT(creation_date,\'%d/%m/%Y à %Hh%i\')AS date_creation_fr, latitude, longitude FROM posts ORDER BY creation_date');
         return $posts;
     }
 
