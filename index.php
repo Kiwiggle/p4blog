@@ -1,4 +1,5 @@
 <?php 
+session_start();
 require('vendor/autoload.php');
 require('controller/frontend.php');
 require('controller/backend.php');
@@ -44,8 +45,27 @@ try {
             }
         } elseif ($_GET['action'] == 'reportComment' && (isset($_GET['commentId']))) {
             reportComment($_GET['commentId']);
+        } elseif ($_GET['action'] == 'signin') {
+            if($_POST) {
+                signIn($_POST);
+            } else {
+                signIn();
+            }
+        } elseif ($_GET['action'] == 'login') {
+            if($_POST) {
+                logIn($_POST);
+            } else {
+                logIn();
+            }
+        } elseif ($_GET['action'] == 'logout') {
+            logout();
         } elseif ($_GET['action'] == 'admin') {
-            adminView();
+            if(isset($_SESSION) && $_SESSION['name'] === 'Forteroche') {
+                adminView();
+            } else {
+                throw new Exception('Erreur : vous n\'êtes pas connecté');
+            }
+            
         } elseif ($_GET['action'] == 'createPost') {
             if ($_POST) {
                 createPost($_POST);

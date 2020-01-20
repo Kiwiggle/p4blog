@@ -2,10 +2,11 @@
 
 use Model\PostManager;
 use Model\CommentManager; 
+use Model\UserManager;
 
 function tablePosts()
 {
-    $postManager = new Model\PostManager();
+    $postManager = new PostManager();
     $posts = $postManager->getPosts();
     require('view/backend/tablePosts.php');
 }
@@ -14,7 +15,7 @@ function createPost($post = null) {
     if ($post === null) {
         require('view/backend/createPost.php');
     } else {
-        $postManager = new Model\PostManager();
+        $postManager = new PostManager();
         $postManager->createPost($post);
         header('Location: index.php');
     }
@@ -22,7 +23,7 @@ function createPost($post = null) {
 
 function deletePost($postId)
 {
-    $postManager = new Model\PostManager();
+    $postManager = new PostManager();
     $postManager->deletePost($postId);
     header('Location: index.php');
 }
@@ -32,7 +33,7 @@ function updatePost($updatedPost = null, $updatedPostId = null)
     if ($updatedPost === null) {
         require('view/backend/updatePost.php');
     } else {
-        $postManager = new Model\PostManager();
+        $postManager = new PostManager();
         $postManager->updatePost($updatedPost, $updatedPostId);
         header('Location: index.php');
     }
@@ -64,4 +65,35 @@ function deleteComment($commentId)
 function adminView() 
 {
     require('view/backend/admin.php');
+}
+
+function signIn($user = null) {
+    if ($user === null) {
+        require('view/frontend/signin.php');
+    } else {
+        $userManager = new UserManager();
+        $userManager->newUser($_POST);
+        header('Location: index.php');
+    }
+    
+}
+
+function logIn($user = null) {
+    if ($user === null) {
+        require('view/frontend/login.php');
+    } else {
+        $userManager = new UserManager();
+        $userManager->logInUser($_POST);
+            if ($_SESSION['name'] === "Forteroche") {
+                header('Location: index.php?action=admin');
+            } else {
+                header('Location: index.php');
+            }
+    }
+    
+}
+
+function logout() {
+    session_destroy();
+    header('Location: index.php');
 }

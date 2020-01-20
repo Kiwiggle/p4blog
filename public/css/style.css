@@ -91,6 +91,15 @@ INDEX HEADER & LOGIN SECTION
     color: #86c9e3;
 }
 
+.loginNav.logged {
+    flex-direction: column;
+}
+
+.loginNav.logged p {
+    margin:0;
+    text-align: center;
+}
+
 
 
 
@@ -199,18 +208,18 @@ p.postContent {
     margin: 0 0 10% 0;
 }
 
-.addComment form label, .createPostForm label {
+label {
     font-size:1.5em;
-    margin-top:2%;
+    margin:2% 0;
 }
 
-.addComment input, .addComment textarea, .createPostForm input {
+.addComment input, .addComment textarea, .createPostForm input, .signInForm input {
  margin:auto;
  width:50%;
  border: 1px solid #86c9e3;
 }
 
-.addComment input, .createPostForm input {
+.addComment input, .createPostForm input, .signInForm input {
     height:30px;
 } 
 
@@ -218,7 +227,7 @@ p.postContent {
     height:100px;
 }
 
-.addComment form .submitButton, .createPostForm .submitButton  {
+.submitButton  {
     margin-top:2%;
     width:10%;
     height:40px;
@@ -228,9 +237,7 @@ p.postContent {
     font-family:'Source Sans Pro', sans-serif;
 }
 
-
-
-.addComment input:valid, .addComment textarea:valid, .createPostForm input:valid {
+input:valid {
     font-size:1.3em;
     text-align: center;
     font-family: 'Source Sans Pro', sans-serif;
@@ -313,16 +320,13 @@ NEW POST
     margin:0 auto 0 auto;
 }
 
-.createPost .createPostForm {
+.createPost .createPostForm, .signInForm {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
 }
 
-.createPostForm label {
-    margin-bottom:2%;
-}
 
 
 
