@@ -1,1 +1,1 @@
-let map = new Map(62.201618, -149.350806, 'mapid', 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', 'public/js/latLonJSON.php');
+let map = new Map(63.201618, -149.350806, 'mapid', 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', 'public/js/latLonJSON.php');

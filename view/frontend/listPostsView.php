@@ -4,13 +4,20 @@
 
 <header id="index_header">
     <h1>Un billet simple pour l'Alaska.</h1>
-    <p id="author">Jean Forteroche. </p>
+    
 
-    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Possimus cum quam repellendus dicta perferendis ex esse, harum distinctio necessitatibus. Dolorum repellat in rem enim harum porro ducimus itaque, nesciunt excepturi.</p>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur non illo accusantium earum consequatur quas impedit similique ipsa inventore quisquam mollitia corrupti sapiente voluptates nam, consequuntur harum reprehenderit unde iure.</p>
-
+    <p>
+        "Un billet simple pour l'Alaska" est un roman que j'ai choisi de dévoiler petit à petit sur ce blog. Vous retrouverez chacun des chapitres sur la carte, cliquez sur un marqueur pour lire le chapitre de votre choix. <br>
+        Je vous souhaite, à toutes et tous, une agréable lecture. <br>
+        <b class="author"> Jean Forteroche </b>
+    </p>
     <a href="index.php?action=admin"> <p>Espace Admin</p> </a>
 </header>
+
+<nav class="loginNav">
+    <a href="index.php?action=login"> <p>Se connecter</p> </a>
+    <a href="index.php?action=signIn"> <p>S'inscrire</p> </a>
+</nav>
 
 <div id="mapid"></div>
 

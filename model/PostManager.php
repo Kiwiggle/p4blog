@@ -23,7 +23,7 @@ class PostManager extends Manager {
         $db = $this->dbConnect();
         $req = $db->prepare('INSERT INTO posts(title, content, creation_date, latitude, longitude) VALUES(:title, :content, :creation_date, :latitude, :longitude)');
         $req->execute(array (
-            'title' => 'Titre test',
+            'title' => $content['titre'],
             'content' => $content['textarea'],
             'creation_date' => date("Y-m-d H:i:s"),
             'latitude' => $content['latitude'],
