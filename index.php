@@ -52,10 +52,14 @@ try {
                 signIn();
             }
         } elseif ($_GET['action'] == 'login') {
-            if($_POST) {
-                logIn($_POST);
+            if(!$_SESSION) {
+                if($_POST) {
+                    logIn($_POST);
+                } else {
+                    logIn();
+                }
             } else {
-                logIn();
+                header('Location: index.php');
             }
         } elseif ($_GET['action'] == 'logout') {
             logout();
@@ -63,26 +67,32 @@ try {
             if(isset($_SESSION) && $_SESSION['name'] === 'Forteroche') {
                 adminView();
             } else {
-                throw new Exception('Erreur : vous n\'êtes pas connecté');
+                logIn();
             }
-            
         } elseif ($_GET['action'] == 'createPost') {
-            if ($_POST) {
-                createPost($_POST);
-            } else {
-                createPost();
-            }
+            if(isset($_SESSION) && $_SESSION['name'] === 'Forteroche') {
+                if ($_POST) {
+                    createPost($_POST);
+                } else {
+                    createPost();
+                }
+            } 
         } elseif ($_GET['action'] == 'updatePost') {
-            if (!empty($_POST)) {
-                updatePost($_POST, $_GET['id']);
-            } else {
-                updatePost();
+            if(isset($_SESSION) && $_SESSION['name'] === 'Forteroche') {
+                if (!empty($_POST)) {
+                    updatePost($_POST, $_GET['id']);
+                } else {
+                    updatePost();
+                }
             }
-            
         } elseif ($_GET['action'] == 'deletePost' && $_GET['id']) {
-            deletePost($_GET['id']);
+            if(isset($_SESSION) && $_SESSION['name'] === 'Forteroche') {
+                deletePost($_GET['id']);
+            }
         } elseif ($_GET['action'] == 'deleteComment' && (isset($_GET['id']))) {
-            deleteComment($_GET['id']);
+            if(isset($_SESSION) && $_SESSION['name'] === 'Forteroche') {
+                deleteComment($_GET['id']);
+            }
         } 
     } else {
         listPosts();

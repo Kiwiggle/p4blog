@@ -60,10 +60,7 @@ function deleteComment($commentId)
     require('view/backend/admin.php');
 }
 
-
-
-function adminView() 
-{
+function adminView() {
     require('view/backend/admin.php');
 }
 
@@ -83,11 +80,13 @@ function logIn($user = null) {
         require('view/frontend/login.php');
     } else {
         $userManager = new UserManager();
-        $userManager->logInUser($_POST);
-            if ($_SESSION['name'] === "Forteroche") {
-                header('Location: index.php?action=admin');
-            } else {
+        $password = $userManager->logInUser($_POST);
+            if ($password === true) {
+                session_start();
+                $_SESSION['name'] = $user['name'];
                 header('Location: index.php');
+            } else {
+                echo "Mauvais identifiant ou mot de passe !";
             }
     }
     

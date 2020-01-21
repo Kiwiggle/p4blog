@@ -15,14 +15,9 @@ class UserManager extends Manager {
     }
 
     public function logInUser($user) {
-        var_dump($user);
         $password = $this->passwordVerify($user);
-        if ($password === true) {
-            session_start();
-            $_SESSION['name'] = $user['name'];
-        } else {
-            echo "Mauvais identifiant ou mot de passe !";
-        }
+         
+        return $password;
     }
 
     private function passwordVerify($user) {
