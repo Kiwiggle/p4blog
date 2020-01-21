@@ -1,4 +1,5 @@
-<?php $title = htmlspecialchars($post['title']);
+<?php 
+$title = htmlspecialchars($post['title']);
 ob_start();?>
 
     <div class="postPage">
@@ -9,6 +10,13 @@ ob_start();?>
                 <p class="postDate"> Posté le : <?php echo $post['creation_date_fr']; ?> </p>
             </div>
         </article>
+
+        <?php if ($_SESSION['name'] == 'Forteroche') { ?>
+            <div class="adminActions">
+                <a href="index.php?action=updatePost&amp;id= <?= $_GET['id']?>"> <p> Modifier </p> </a>
+                <a href="index.php?action=deletePost&amp;id= <?= $_GET['id']?>"> <p> Supprimer </p> </a>
+            </div>
+        <?php } ?>
 
         <section class="comments">
             <div class="commentsList">

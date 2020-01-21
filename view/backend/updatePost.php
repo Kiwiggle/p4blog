@@ -9,7 +9,7 @@ ob_start();
   
     <form action="index.php?action=updatePost&amp;id=<?= $_GET['id'] ?>" method="post" class="createPostForm">
         <label for="titre">Titre de l'article :</label>
-        <input type="text" id="title" name="titre" value="<?= $post['title'] ?>" required>
+        <input type="text" id="title" name="title" value="<?= $post['title'] ?>" required>
 
         <label for="chapter_id">Numéro de chapitre :</label>
         <input type="text" id="chapter_id" name="chapter_id" value="<?= $post['chapter_id'] ?>" required>

@@ -5,7 +5,7 @@ class PostManager extends Manager {
     public function getPosts() 
     {
         $db = $this->dbConnect();
-        $posts = $db->query('SELECT id, title, content, DATE_FORMAT(creation_date,\'%d/%m/%Y à %Hh%i\')AS date_creation_fr, latitude, longitude, chapter_id FROM posts ORDER BY creation_date');
+        $posts = $db->query('SELECT id, title, content, DATE_FORMAT(creation_date,\'%d/%m/%Y à %Hh%i\')AS date_creation_fr, latitude, longitude, chapter_id FROM posts ORDER BY creation_date DESC');
         return $posts;
     }
 
@@ -21,14 +21,14 @@ class PostManager extends Manager {
 
     public function createPost($content) {
         $db = $this->dbConnect();
-        $req = $db->prepare('INSERT INTO posts(title, content, creation_date, latitude, longitude, chapter_id) VALUES(:title, :content, :creation_date, :latitude, :longitude :chapter)');
+        $req = $db->prepare('INSERT INTO posts(title, content, creation_date, latitude, longitude, chapter_id) VALUES(:title, :content, :creation_date, :latitude, :longitude, :chapter_id)');
         $req->execute(array (
             'title' => $content['titre'],
             'content' => $content['textarea'],
             'creation_date' => date("Y-m-d H:i:s"),
             'latitude' => $content['latitude'],
             'longitude' => $content ['longitude'],
-            'chapter' => $content['chapter_id']
+            'chapter_id' => $content['chapter_id']
         ));
     }
 
