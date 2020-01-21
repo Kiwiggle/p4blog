@@ -278,8 +278,6 @@ ADMIN
 
 .adminBoard .createPostButton:hover {
     cursor: pointer;
-    background-color: #fff;
-    border: 2px solid #86c9e3;
 }
 
 .table {

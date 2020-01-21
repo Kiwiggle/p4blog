@@ -12,7 +12,7 @@ class PostManager extends Manager {
     public function getPost($postId)
     {
         $db = $this->dbConnect();
-        $req = $db->prepare('SELECT id, title, content, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%i\') AS creation_date_fr, latitude, longitude FROM posts WHERE id = ?');
+        $req = $db->prepare('SELECT id, title, content, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%i\') AS creation_date_fr FROM posts WHERE id = ?');
         $req->execute(array($postId));
         $post = $req->fetch();
 
@@ -33,14 +33,8 @@ class PostManager extends Manager {
 
     public function updatePost($updatedPost, $updatedPostId) {
         $db = $this->dbConnect();
-        $req = $db->prepare('UPDATE posts SET title = ?, content = ?, creation_date = ?, latitude = ?, longitude = ? WHERE id = ?');
-        $req->execute(array(
-            $updatedPost['title'],
-            $updatedPost['textarea'],
-            date("Y-m-d H:i:s"),
-            $updatedPost['latitude'],
-            $updatedPost['longitude'],
-            $updatedPostId));
+        $req = $db->prepare('UPDATE posts SET title = ?, content = ?, creation_date = ? WHERE id = ?');
+        $req->execute(array('Updated post test', $updatedPost['textarea'], date("Y-m-d H:i:s"), $updatedPostId));
     }
 
     public function deletePost($postId) {

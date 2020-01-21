@@ -28,15 +28,13 @@ function deletePost($postId)
     header('Location: index.php');
 }
 
-function updatePost($postId, $updatedPost = null)
+function updatePost($updatedPost = null, $updatedPostId = null)
 {
     if ($updatedPost === null) {
-        $postManager = new PostManager();
-        $post = $postManager->getPost($postId);
         require('view/backend/updatePost.php');
     } else {
         $postManager = new PostManager();
-        $postManager->updatePost($updatedPost, $postId);
+        $postManager->updatePost($updatedPost, $updatedPostId);
         header('Location: index.php');
     }
 }
