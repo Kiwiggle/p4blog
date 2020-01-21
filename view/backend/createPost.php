@@ -11,6 +11,9 @@ ob_start();
         <label for="titre">Titre de l'article :</label>
         <input type="text" id="titre" name="titre" required>
 
+        <label for="chapter_id">Numéro de chapitre :</label>
+        <input type="text" id="chapter_id" name="chapter_id" required>
+
         <label for="textarea">Contenu de l'article :</label>
         <textarea name="textarea" id="textarea" cols="30" rows="10"></textarea>
 
