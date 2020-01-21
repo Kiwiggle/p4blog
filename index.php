@@ -79,10 +79,10 @@ try {
             } 
         } elseif ($_GET['action'] == 'updatePost') {
             if(isset($_SESSION) && $_SESSION['name'] === 'Forteroche') {
-                if (!empty($_POST)) {
-                    updatePost($_POST, $_GET['id']);
+                if ($_POST) {
+                    updatePost($_GET['id'], $_POST);
                 } else {
-                    updatePost();
+                    updatePost($_GET['id']);
                 }
             }
         } elseif ($_GET['action'] == 'deletePost' && $_GET['id']) {
