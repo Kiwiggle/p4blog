@@ -48,7 +48,7 @@ class Map {
                  marker.addEventListener('click', function(){
                     document.location.href = 'index.php?action=post&id=' + chapters[i].id;
                 });
-                marker.addTo(that.maCarte).bindTooltip(chapters[i].title, {permanent:true, direction: 'top'});
+                marker.addTo(that.maCarte).bindTooltip(chapters[i].chapter_id + ". " + chapters[i].title, {permanent:true, direction: 'top'});
         }
         that.addLines();
     }); 
