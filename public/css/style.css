@@ -411,8 +411,11 @@ MEDIA QUERIES
         margin-bottom:10%;
     }
 
-    .addComment input, .addComment textarea {
+    .addComment input, .addComment textarea, .createPostForm input {
         width: 85%;
+    }
+
+    .addComment input, .addComment textarea {
         margin-bottom:10%;
     }
 
@@ -426,6 +429,34 @@ MEDIA QUERIES
     }
 
 
+    .table {
+        width:90%;
+    }
+
+    .table thead th {
+        display:none;
+    }
+
+    tr {
+        display: flex;
+        flex-direction: column;
+        border-bottom:1px solid #86c9e3;
+        margin:5% 0 0 0;
+        padding-bottom: 5%;
+    }
+
+    .table td {
+        border:none;
+    }
+
+    .adminBoard .createPostButton {
+        width:40%;
+        margin:10% 0 0 0;
+    }
+
+    .adminBoard h2 {
+        margin: 10% 0 0 0;
+    }
 
 
 
