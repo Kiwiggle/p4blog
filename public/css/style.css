@@ -71,6 +71,10 @@ INDEX HEADER & LOGIN SECTION
     margin-bottom: 5%;
 }
 
+.mapButton {
+    display:none;
+}
+
 .loginNav {
     position: absolute;
     right:0.5%;
@@ -243,7 +247,7 @@ label {
     height:100px;
 }
 
-.submitButton  {
+.submitButton, .mapButton  {
     margin-top:2%;
     width:10%;
     height:40px;
@@ -344,7 +348,89 @@ NEW POST
 }
 
 
+/*
+*
+*
+MEDIA QUERIES
+*
+*
+*/
 
+
+@media screen and (max-width: 1200px) {
+
+    .mapButton {
+        display: block;
+        margin:0 auto;
+        width:50%;
+    }
+
+    #index_header {
+        left:0;
+        width:100%;
+        opacity: 1;
+        transition: left 0.5s;
+    }
+
+    .post {
+        width:90%;
+    }
+
+    .loginNav {
+        width:70%;
+        opacity:1;
+        bottom: 3%;
+        right:1.5%;
+    }
+
+    p.postContent {
+        line-height:1.5;
+        margin: 3% 1%;
+    }
+
+    .postPage .postDate {
+        padding: 3% 1% 3% 0;
+        text-align: center;
+        font-size:1.3em;
+    }
+
+    .adminActions {
+        justify-content: space-around;
+        margin: 2% 3%;
+    }
+
+    .comments .commentsList h2, .comments .addComment h2 {
+        margin: 15% 0 12% 0;
+    }
+
+    b {
+        font-size:1.3em;
+    }
+
+    .commentsList .commentDate {
+        margin-bottom:10%;
+    }
+
+    .addComment input, .addComment textarea {
+        width: 85%;
+        margin-bottom:10%;
+    }
+
+    .submitButton {
+        width:50%;
+        margin: 5% 0;
+    }
+
+    .comments {
+        width:90%;
+    }
+
+
+
+
+
+
+}
 
 
 

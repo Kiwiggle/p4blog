@@ -1,5 +1,5 @@
 <?php 
-$title = 'Mon blog'; ?>
+$title = 'Un billet simple pour l\'Alaska'; ?>
 
 <?php ob_start(); ?>
 
@@ -11,6 +11,8 @@ $title = 'Mon blog'; ?>
         Je vous souhaite, à toutes et tous, une agréable lecture. <br>
         <b class="author"> Jean Forteroche </b>
     </p>
+
+    <button class="mapButton" onclick="seeMap()">Voir la carte</button>
     <a href="index.php?action=admin"> <p>Espace Admin</p> </a>
 </header>
 

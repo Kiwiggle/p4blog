@@ -35,7 +35,6 @@ class Map {
             for (let i = 0; i < chapters.length; i++) { // Création d'une icône
                  let icon;
                  that.latlngs.push([chapters[i].latitude, chapters[i].longitude]);
-                 console.log(that.latlngs);
                  icon = new L.Icon({
                      iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-black.png', //Verte par défaut
                      shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
