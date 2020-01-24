@@ -102,10 +102,10 @@ class PostController {
         public function updatePost($postId, $updatedPost = null)
         {
             if ($updatedPost === null) {
-                $this->_postManager->getPost($postId);
+                $post = $this->_postManager->getPost($postId);
                 require('view/backend/updatePost.php');
             } else {
-                $this->_postManager->updatePost($updatedPost, $postId);
+                $post = $this->_postManager->updatePost($updatedPost, $postId);
                 header('Location: index.php');
             }
         }

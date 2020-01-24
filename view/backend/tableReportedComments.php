@@ -30,7 +30,7 @@ if ($nbr > 0) {
         </table>
 <?php
 } else {
-    echo '<p>Aucun commentaire signalé</p>';
+    echo '<div class="adminBoard"><p>Aucun commentaire signalé</p></div>';
 } ?>
 
        

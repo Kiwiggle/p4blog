@@ -44,7 +44,7 @@ class UserController {
         if ($user === null) {
             require('view/frontend/login.php');
         } else {
-            $password = $this->userManager->logInUser($_POST);
+            $password = $this->_userManager->logInUser($_POST);
                 if ($password === true) {
                     session_start();
                     $_SESSION['name'] = $user['name'];
