@@ -2,6 +2,13 @@
 Namespace Model;
 
 class PostManager extends Manager {
+    
+    /**
+     * getPosts récupère et envoie tous les posts et leur contenu
+     *
+     * @return $posts
+     */
+    
     public function getPosts() 
     {
         $db = $this->dbConnect();
@@ -9,6 +16,14 @@ class PostManager extends Manager {
         return $posts;
     }
 
+    /**
+     * getPost récupère et envoie un post et son contenu
+     *
+     * @param  int $postId
+     *
+     * @return $post
+     */
+    
     public function getPost($postId)
     {
         $db = $this->dbConnect();
@@ -19,6 +34,13 @@ class PostManager extends Manager {
         return $post;
     }
 
+    /**
+     * createPost créée une nouvelle ligne (post) en BDD
+     *
+     * @param  array $content
+     *
+     */
+    
     public function createPost($content) {
         $db = $this->dbConnect();
         $req = $db->prepare('INSERT INTO posts(title, content, creation_date, latitude, longitude, chapter_id) VALUES(:title, :content, :creation_date, :latitude, :longitude, :chapter_id)');
@@ -32,6 +54,14 @@ class PostManager extends Manager {
         ));
     }
 
+    /**
+     * updatePost modifie une ligne déjà existante en BDD
+     *
+     * @param  array $updatedPost
+     * @param  int $updatedPostId
+     *
+     */
+    
     public function updatePost($updatedPost, $updatedPostId) {
         $db = $this->dbConnect();
         $req = $db->prepare('UPDATE posts SET title = ?, content = ?, creation_date = ?, latitude = ?, longitude = ?, chapter_id = ? WHERE id = ?');
@@ -44,6 +74,13 @@ class PostManager extends Manager {
             $updatedPost['chapter_id'],
             $updatedPostId));
     }
+
+    /**
+     * deletePost supprime une ligne de la BDD
+     *
+     * @param  int $postId
+     *
+     */
 
     public function deletePost($postId) {
         $db = $this->dbConnect();

@@ -234,7 +234,7 @@ label {
 }
 
 .addComment input, .addComment textarea, .createPostForm input, .signInForm input {
- margin:auto;
+ margin: 0 auto 1% auto;
  width:50%;
  border: 1px solid #86c9e3;
 }
@@ -242,6 +242,11 @@ label {
 .addComment input, .createPostForm input, .signInForm input {
     height:30px;
 } 
+
+.addComment input[type="submit"] {
+    width:20%;
+    margin-top: 2%;
+}
 
 .addComment textarea {
     height:100px;
@@ -417,6 +422,10 @@ MEDIA QUERIES
 
     .addComment input, .addComment textarea {
         margin-bottom:10%;
+    }
+
+    .addComment input, .addComment textarea, .createPostForm input, .signInForm input {
+        margin: 0;
     }
 
     .submitButton {

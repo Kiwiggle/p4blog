@@ -1,6 +1,13 @@
 <?php
 
+use Controller\CommentController;
+use Controller\PostController;
+
 $title = 'Espace d\'administration du blog';
+
+$commentsController = new CommentController();
+$postController = new PostController();
+
 ob_start();
 ?>
 
@@ -9,18 +16,18 @@ ob_start();
 
     <h2>Mes articles</h2>
     <?php
-        tablePosts(); //Ajout du tableau répertoriant tous les billets
+        $postController->tablePosts(); //Ajout du tableau répertoriant tous les billets
     ?>
     <button onclick="location.href='index.php?action=createPost'" type="button" class="createPostButton"> Créer un article </button>
     <h2>Tous les commentaires</h2>
     <?php
-        tableComments(); //Tableau répertoriant les commentaires et billets associés
+        $commentsController->tableComments(); //Tableau répertoriant les commentaires et billets associés
     ?>
     <h2>Commentaires signalés</h2>
 </div>
 
 <?php
-    reportedComments();
+    $commentsController->reportedComments(); //Tableau répertoriant tous les commentaires signalés
 
 $content = ob_get_clean();
 require('view/frontend/template.php');

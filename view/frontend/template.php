@@ -13,8 +13,6 @@
 
         <script src="public/js/ajax.js"></script>
 
-        
-
         <!-- TINY MCE -->
 
         <script src="https://cdn.tiny.cloud/1/h4dzqfr7d40mo3ny19nvu1fm07b73ygqqsb2i3irhs5faume/tinymce/5/tinymce.min.js" referrerpolicy="origin"/></script>

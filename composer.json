@@ -11,6 +11,9 @@
         }
     ],
     "autoload": {
-        "psr-4" : {"Model\\" : "model"}
+        "psr-4" : {
+            "Model\\" : "model", 
+            "Controller\\" : "controller"
+        }
     }
 }
