@@ -25,7 +25,7 @@ class UserController {
         if ($user === null) {
             require('view/frontend/signin.php');
         } else {
-            $this->userManager->newUser($_POST);
+            $this->_userManager->newUser($_POST);
             header('Location: index.php');
         }
         
@@ -46,8 +46,10 @@ class UserController {
         } else {
             $password = $this->_userManager->logInUser($_POST);
                 if ($password === true) {
+                    $user = $this->_userManager->getUser($_POST['name']);
                     session_start();
                     $_SESSION['name'] = $user['name'];
+                    $_SESSION['role'] = $user['role'];
                     header('Location: index.php');
                 } else {
                     echo "Mauvais identifiant ou mot de passe !";

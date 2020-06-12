@@ -8,10 +8,11 @@ ob_start();?>
                 <h1 class="postTitle"><?=htmlspecialchars($post['title'])?></h1>
                 <p class="postContent"> <?php echo $post['content']; ?> </p>
                 <p class="postDate"> Posté le : <?php echo $post['creation_date_fr']; ?> </p>
+                <?php echo $dump; ?>
             </div>
         </article>
 
-        <?php if ($_SESSION['name'] == 'Forteroche') { ?>
+        <?php if ($_SESSION['role'] == 'admin') { ?>
             <div class="adminActions">
                 <a href="index.php?action=updatePost&amp;id= <?= $_GET['id']?>"> <p> Modifier </p> </a>
                 <a href="index.php?action=deletePost&amp;id= <?= $_GET['id']?>"> <p> Supprimer </p> </a>
@@ -20,24 +21,36 @@ ob_start();?>
 
         <section class="comments">
             <div class="commentsList">
+
+
                 <h2>Commentaires</h2>
-                
+                    
                 <?php while ($comment = $comments->fetch()) 
                 {
                     ?>
                     <p><b> <?php echo htmlspecialchars($comment['author']);?> </b></p> 
                     <p> <?php echo htmlspecialchars($comment['comment']);?> </p>
-                    <p class="commentDate"> le <?php echo $comment['comment_date_fr']?> (<a href="index.php?action=reportComment&amp;commentId=<?= $comment['id']?>">Signaler</a>)</p>
+                    <p class="commentDate"> le 
+                        <?php echo $comment['comment_date_fr']; 
+                        if ($comment['reported'] == 0) {
+                            echo ' (<a href="index.php?action=reportComment&amp;commentId=' . $comment['id'] . '">Signaler</a>)';
+                        } else {
+                            echo ' (Commentaire validé par la modération)';
+                        }; ?> 
+                    </p>
                     <?php
                 } 
-                $comments->closeCursor();
-                ?>
+                $comments->closeCursor(); ?>
+               
             </div>
 
             <div class="addComment">
                 <h2>Ajouter un commentaire</h2>
 
-                <form action="index.php?action=addComment&amp;id=<?= $post['id'] ?>" method="post">
+                <?php if (isset($_SESSION) && $_SESSION['role'] == 'member' || $_SESSION['role'] == 'admin') 
+                { ?>
+                    
+                    <form action="index.php?action=addComment&amp;id=<?= $post['id'] ?>" method="post">
                     
                         <label for="author"> Auteur </label><br/>
                         <input type="text" id="author" name="author" required/>
@@ -47,7 +60,16 @@ ob_start();?>
                     
                         <input type="submit" class="submitButton"/>
                     
-                </form>
+                    </form>
+                    
+                <?php    
+                } else { 
+                    echo '<p style="text-align:center;">Seuls les membres inscrits peuvent laisser un commentaire</p>';
+                }?>
+
+                <a href="index.php" class="back-index">Retour à l'accueil du site</a>
+
+                
             </div>
         </section>
     </div>

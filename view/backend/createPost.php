@@ -18,10 +18,10 @@ ob_start();
         <textarea name="textarea" id="textarea" cols="30" rows="10"></textarea>
 
         <label for="latitude">Veuillez renseigner la latitude :</label>
-        <input type="text" id="latitude" name="latitude" required>
+        <input type="text" id="latitude" name="latitude" placeholder="65" required>
 
         <label for="longitude">Veuillez renseigner la longitude :</label>
-        <input type="text" id="longitude" name="longitude" required>
+        <input type="text" id="longitude" name="longitude" placeholder="-149" required>
         <button type="submit" class="submitButton">Valider l'article</button>
     </form>
 </div>

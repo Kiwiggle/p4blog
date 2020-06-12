@@ -76,6 +76,11 @@ class CommentController {
             require('view/backend/tableReportedComments.php');
         }
 
+        public function commentVerified($commentId) {
+            $this->_commentManager->commentVerified($commentId);
+            header('Location: index.php?action=admin');
+        }
+
         /**
          * deleteComment permet de supprimer un commentaire
          *

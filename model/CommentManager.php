@@ -13,7 +13,7 @@ class CommentManager extends Manager
 
     public function getCommentsFromPost($postId) {
         $db = $this->dbConnect();
-        $comments = $db->prepare('SELECT id, author, comment, DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%i\') AS comment_date_fr FROM comments WHERE post_id = ? ORDER BY comment_date DESC');
+        $comments = $db->prepare('SELECT id, author, comment, reported, DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%i\') AS comment_date_fr FROM comments WHERE post_id = ? AND reported <> 1 ORDER BY comment_date DESC');
         $comments->execute(array($postId));
     
         return $comments;
@@ -72,7 +72,7 @@ class CommentManager extends Manager
     
     public function getReportedComments() {
         $db = $this->dbConnect();
-        $comments = $db->query('SELECT id, author, comment, DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%i\') AS comment_date_fr FROM comments WHERE reported > 0');
+        $comments = $db->query('SELECT id, author, comment, DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%i\') AS comment_date_fr FROM comments WHERE reported = 1');
         return $comments;
     }
 
@@ -90,6 +90,19 @@ class CommentManager extends Manager
     }
 
     /**
+     * commentVerified permet d'approuver un commentaire en BDD
+     *
+     * @param  int $commentId
+     *
+     */
+
+    public function commentVerified($commentId) {
+        $db = $this->dbConnect();
+        $req = $db->prepare('UPDATE comments SET reported = 2 WHERE id = ?');
+        $req->execute(array($commentId));
+    }
+
+    /**
      * deleteComment supprime un commentaire de la BDD
      *
      * @param  int $commentId
@@ -100,6 +113,19 @@ class CommentManager extends Manager
         $db = $this->dbConnect();
         $req = $db->prepare('DELETE FROM comments WHERE id = ?');
         $req->execute(array($commentId));
+    }
+
+    /**
+     * supprime les commentaires liés à un post supprimé
+     *
+     * @param  int $postId
+     *
+     */
+
+    public function deleteCommentsFromPost($postId) {
+        $db = $this->dbConnect();
+        $req = $db->prepare('DELETE FROM comments WHERE post_id = ?');
+        $req->execute(array($postId));
     }
 
 }

@@ -27,6 +27,24 @@ a {
 /*
 *
 *
+ERROR
+*
+*
+*/
+
+.error {
+    width:100%;
+    height:100vh;
+
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/*
+*
+*
 INDEX HEADER & LOGIN SECTION
 *
 *
@@ -97,6 +115,7 @@ INDEX HEADER & LOGIN SECTION
 
 .loginNav.logged {
     flex-direction: column;
+    min-height:70px;
 }
 
 .loginNav.logged p {
@@ -225,7 +244,7 @@ p.postContent {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    margin: 0 0 10% 0;
+    margin: 0 0 2% 0;
 }
 
 label {
@@ -241,6 +260,7 @@ label {
 
 .addComment input, .createPostForm input, .signInForm input {
     height:30px;
+    min-width: 90px;
 } 
 
 .addComment input[type="submit"] {
@@ -254,6 +274,7 @@ label {
 
 .submitButton, .mapButton  {
     margin-top:2%;
+    min-width: 150px;
     width:10%;
     height:40px;
     background-color: #86c9e3;
@@ -266,6 +287,17 @@ input:valid {
     font-size:1.3em;
     text-align: center;
     font-family: 'Source Sans Pro', sans-serif;
+}
+
+.back-index {
+    display: inline-block;
+    text-align: center;
+    width: 100%;
+}
+
+.back-index:hover {
+    cursor:pointer;
+    text-decoration: underline;
 }
 
 
@@ -382,6 +414,7 @@ MEDIA QUERIES
     }
 
     .loginNav {
+        min-height: 70px;
         width:70%;
         opacity:1;
         bottom: 3%;
@@ -405,7 +438,7 @@ MEDIA QUERIES
     }
 
     .comments .commentsList h2, .comments .addComment h2 {
-        margin: 15% 0 12% 0;
+        margin: 15% 0 9% 0;
     }
 
     b {

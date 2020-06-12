@@ -11,14 +11,14 @@ class UserManager extends Manager {
      */
     
     public function newUser($user) {
-        var_dump($user);
         $password = password_hash($user['password'], PASSWORD_DEFAULT); 
         $db = $this->dbConnect();
-        $req = $db->prepare('INSERT INTO p4_user(name, email, password) VALUES(:name, :email, :password)');
+        $req = $db->prepare('INSERT INTO p4_user(name, email, password, role) VALUES(:name, :email, :password, :role)');
         $req->execute(array (
             'name' => $user['name'],
             'email' => $user['email'],
             'password' => $password,
+            'role' => 'member'
         ));
     }
 
@@ -34,6 +34,19 @@ class UserManager extends Manager {
         $password = $this->passwordVerify($user);
          
         return $password;
+    }
+
+    public function getUser($userName) {
+        $db = $this->dbConnect();
+        $req = $db->prepare('SELECT * FROM p4_user WHERE name = :name');
+        $req->execute(array(
+            'name' => $userName
+        ));
+
+        $user = $req->fetch();
+
+        return $user;
+
     }
 
     /**

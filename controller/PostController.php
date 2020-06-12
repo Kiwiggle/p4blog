@@ -39,6 +39,9 @@ class PostController {
         function post($postId)
         {
             $post = $this->_postManager->getPost($postId);
+            if (empty($post)) {
+                throw new \Exception('Erreur : mauvais identifiant de billet envoyé');
+            }
             $comments = $this->_commentManager->getCommentsFromPost($postId);
             require('view/frontend/postView.php');
         }
@@ -85,6 +88,7 @@ class PostController {
         public function deletePost($postId)
         {
             $this->_postManager->deletePost($postId);
+            $this->_commentManager->deleteCommentsFromPost($postId);
             header('Location: index.php');
         }
 
@@ -103,10 +107,13 @@ class PostController {
         {
             if ($updatedPost === null) {
                 $post = $this->_postManager->getPost($postId);
+                if (empty($post)) {
+                    throw new \Exception('Erreur : mauvais identifiant de billet envoyé');
+                }
                 require('view/backend/updatePost.php');
             } else {
                 $post = $this->_postManager->updatePost($updatedPost, $postId);
-                header('Location: index.php');
+                header('Location: index.php?action=post&id=' . $postId);
             }
         }
 }

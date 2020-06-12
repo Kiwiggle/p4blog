@@ -20,6 +20,7 @@ if ($nbr > 0) {
                     <td><?= $data['author'] ?></td>
                     <td><?= $data['comment']?></td>
                     <td><?= $data['comment_date_fr']?></td>
+                    <td><button onclick="location.href='index.php?action=verifyComment&amp;id=<?= $data['id']?>'" type="button"> Approuver </button>
                     <td><button onclick="location.href='index.php?action=deleteComment&amp;id=<?= $data['id']?>'" type="button">
                     Supprimer</button></td>
                 </tr>
