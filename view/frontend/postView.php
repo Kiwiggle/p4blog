@@ -52,10 +52,10 @@ ob_start();?>
                     
                     <form action="index.php?action=addComment&amp;id=<?= $post['id'] ?>" method="post">
                     
-                        <label for="author"> Auteur </label><br/>
-                        <input type="text" id="author" name="author" required/>
+                        <label for="author"> Vous êtes connecté en tant que : <?php echo $_SESSION['name']?> </label><br/>
+                        <input type="hidden" id="author" name="author" value="<?php echo $_SESSION['name']?>" required/>
                     
-                        <label for="comment"> Commentaire </label><br/>
+                        <label for="comment"> Votre commentaire : </label><br/>
                         <textarea name="comment" id="comment" required></textarea>
                     
                         <input type="submit" class="submitButton"/>

@@ -1,6 +1,8 @@
 <?php
 
 Namespace Controller;
+
+use Exception;
 use Model\UserManager;
 
 class UserController {
@@ -52,7 +54,7 @@ class UserController {
                     $_SESSION['role'] = $user['role'];
                     header('Location: index.php');
                 } else {
-                    echo "Mauvais identifiant ou mot de passe !";
+                    throw new \Exception('Mauvais identifiant ou mot de passe');
                 }
         }
         
