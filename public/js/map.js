@@ -26,7 +26,7 @@ class Map {
     };
 
     addMarkers() { 
-        // Récupère la liste des stations et ajoute les marqueurs à la carte
+        // Récupère la liste des posts et ajoute les marqueurs à la carte
         let that = this;
         let maCarte = this.maCarte;
         // Création d'une icône
@@ -36,7 +36,7 @@ class Map {
                  let icon;
                  that.latlngs.push([chapters[i].latitude, chapters[i].longitude]);
                  icon = new L.Icon({
-                     iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-black.png', //Verte par défaut
+                     iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-black.png', //Noire par défaut
                      shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
                      iconSize: [25, 41],
                      iconAnchor: [12, 41],
