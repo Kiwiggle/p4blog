@@ -11,12 +11,12 @@ class UserManager extends Manager {
      */
     
     public function newUser($user) {
-        $password = password_hash($user['password'], PASSWORD_DEFAULT); 
+        $password = password_hash(htmlspecialchars($user['password']), PASSWORD_DEFAULT); 
         $db = $this->dbConnect();
         $req = $db->prepare('INSERT INTO p4_user(name, email, password, role) VALUES(:name, :email, :password, :role)');
         $req->execute(array (
-            'name' => $user['name'],
-            'email' => $user['email'],
+            'name' => htmlspecialchars($user['name']),
+            'email' => htmlspecialchars($user['email']),
             'password' => $password,
             'role' => 'member'
         ));
