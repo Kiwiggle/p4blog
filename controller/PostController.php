@@ -88,7 +88,7 @@ class PostController {
         public function deletePost($postId)
         {
             $this->_postManager->deletePost($postId);
-            $this->_commentManager->deleteCommentsFromPost($postId);
+            //$this->_commentManager->deleteCommentsFromPost($postId);
             header('Location: index.php');
         }
 
